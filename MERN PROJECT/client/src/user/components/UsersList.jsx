@@ -20,13 +20,15 @@ const UserList = props => {
     <ul className="users-list">
       {props.items.map((user) => {
         return (
-          <UserItem
+          <div className="animate-fadeIn">
+          <UserItem 
             key={user.id}
             id={user.id}
             name={user.name}
             image={user.image}
             placeCount={user.places.length}
           />
+          </div>
         );
       })}
     </ul>

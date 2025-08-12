@@ -1,0 +1,35 @@
+.star-rating {
+  display: grid;
+  gap: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.star {
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.star.filled {
+  color: gold;
+}
+
+.rating-stars-container {
+  display: flex;
+  flex-direction: row;
+  gap: 82px; /* רווח בין כוכבים */
+  align-items: center;
+}
+
+.star-icon {
+  width: 10px;
+  height: 10px;
+  stroke: goldenrod;
+  cursor: pointer;  
+  transition: transform 0.2s ease;
+}
+
+.star-icon:hover {
+  transform: scale(1.2);
+}
+

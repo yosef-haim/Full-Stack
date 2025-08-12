@@ -1,0 +1,97 @@
+.modal-bubble {
+  z-index: 100;
+  position: fixed;
+  top: 22vh;
+  left: 10%;
+  width: 80%;
+  background: #fffaf0; /* צבע שמנת בהיר מאוד */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 8px;     
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh; /* מגביל את הגובה */
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+}
+
+.modal__header {
+  position: sticky;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  background: #df548c;
+  color: white;
+  flex-shrink: 0;
+}
+
+.modal__header h2 {
+  margin: 0.5rem;
+}
+
+.modal__content {
+  padding: 1rem 0.5rem;
+  overflow-y: auto; /* גלילה לתוכן */
+  flex-grow: 1;
+}
+
+.modal__footer {
+  padding: 1rem 0.5rem;
+  flex-shrink: 0;
+}
+
+@keyframes slideDownIn {
+  0% {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpOut {
+  0% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+}
+
+.modal-bubble-enter {
+  animation: slideDownIn 0.3s ease forwards;
+}
+
+.modal-bubble-exit {
+  animation : slideUpOut 0.3s ease forwards;
+}
+
+/* עיצוב פס גלילה */
+.modal-bubble::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+.modal-bubble::-webkit-scrollbar-track {
+  background: hwb(40 94% 0%);
+  border-radius: 10px;
+}
+
+.modal-bubble::-webkit-scrollbar-thumb {
+  background-color: #ffe4b5;
+  border-radius: 10px;
+  border: 2px solid #fffaf0;
+}
+
+/* תמיכה ב־Firefox */
+.modal-bubble {
+  scrollbar-width: thin;
+  scrollbar-color: #df548c #fffaf0;
+}
+
+
+
+

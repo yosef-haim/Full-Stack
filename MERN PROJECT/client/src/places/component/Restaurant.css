@@ -1,0 +1,50 @@
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.restaurant-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  transition: transform 0.2s ease;
+}
+
+.restaurant-card:hover {
+  transform: scale(1.02);
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.restaurant-card .content {
+  padding: 1rem;
+}
+
+.restaurant-card .title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-card .info {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-card .link {
+  color: #3b82f6;
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-top: auto;
+}

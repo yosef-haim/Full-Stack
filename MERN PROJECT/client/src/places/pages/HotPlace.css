@@ -1,0 +1,59 @@
+.hotplace-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  max-width: 320px;
+  margin: auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hotplace-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.hotplace-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* שכבת כהה */
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hotplace-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hotplace-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.hotplace-content {
+  margin-top: auto;
+}
+
+.hotplace-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.hotplace-rating,
+.hotplace-investment {
+  margin: 0.2rem 0;
+}
+
+.hotplace-dashboard {
+  margin-top: 1rem;
+}

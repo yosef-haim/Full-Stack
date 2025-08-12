@@ -8,12 +8,12 @@ import "./UserItem.css";
 
 const UserItem = (props) => {
   return (
-    <li className="user-item">
+    <li className="user-item hover:animate-pulse transition duration-300 ease-in-out" >
       <Card>
-        <Link to={`/${props.id}/places`}>
+        <Link to={`/${props.id}/places`} >
           <div className="user-item__content">
             <div className="user-item__image">
-              <Avatar image={`${process.env.REACT_APP_ASSET_URL}/${props.image}`} alt={props.name} />
+              <Avatar image={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}  alt={props.name} />
             </div>
             <div className="user-item__info">
               <h2>{props.name}</h2>

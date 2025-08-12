@@ -4,6 +4,7 @@ import PlaceList from "../component/PlaceList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/component/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/component/UIElements/LoadingSpinner";
+
 const UserPlaces = () => {
   const [loadedPlaces, setLoadedPlaces ] =  useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -23,6 +24,8 @@ const UserPlaces = () => {
     setLoadedPlaces(prevPlaces => prevPlaces.filter(place => place.id !== deletedPlaceId))
   }
 
+
+
   return <React.Fragment>
     <ErrorModal error={error} onClear={clearError} />
     {isLoading && (
@@ -30,8 +33,9 @@ const UserPlaces = () => {
             <LoadingSpinner />
         </div>
     )}
+    
     {!isLoading && loadedPlaces && <PlaceList items={loadedPlaces} onDeletePlace={placeDeleteHandler} /> }
-      
+       
     </React.Fragment>
 };
 
