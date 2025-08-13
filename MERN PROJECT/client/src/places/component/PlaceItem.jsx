@@ -13,7 +13,7 @@ import Weather from "../../shared/component/UIElements/WeatherComponent";
 import RestaurantList from "../component/Restaurant";
 import RestaurantCard from "../../shared/component/UIElements/RestaurantCard";
 import Hotels from "../../shared/component/UIElements/Hotels";
-import Dashboard from '../../shared/component/UIElements/Dashboard';
+import Survey from "../../shared/component/UIElements/Survey";
 import "./PlaceItem.css";
 
 const PlaceItem = (props) => {
@@ -27,7 +27,8 @@ const PlaceItem = (props) => {
   const [showHotels, setShowHotels] = useState(false);
   const [averageRating, setAverageRating] = useState(0);
   const [totalRatings, setTotalRatings] = useState(0);
-  
+  const [openSurvey, sestOpenSurvey] = useState(false);
+
   const openMapHandler = () => {
     setShowMap(true);
   };
@@ -40,13 +41,13 @@ const PlaceItem = (props) => {
     setShowRestaurant(true);
   };
 
-  const openHotelsHandler = () =>{
+  const openHotelsHandler = () => {
     setShowHotels(true);
-  }
+  };
 
   const closeHotelsHandler = () => {
     setShowHotels(false);
-  }
+  };
 
   const closeRestHandler = () => {
     setIsClosing(true);
@@ -56,6 +57,13 @@ const PlaceItem = (props) => {
     }, 300); // חשוב שזמן זה יתאים לאורך האנימציה ב־CSS
   };
 
+  const openSurveyHandler = () => {
+    sestOpenSurvey(true);
+  };
+
+  const closeSurveyHandler = () => {
+    sestOpenSurvey(false);
+  }
   const showDeleteWarningHandler = () => {
     setShowConfirmModel(true);
   };
@@ -119,7 +127,6 @@ const PlaceItem = (props) => {
 
         const data = await response.json();
         setAverageRating(data.averageRating);
-        console.log(data);
         setTotalRatings(data.totalRatings);
       } catch (err) {
         console.error("Failed to fetch rating:", err);
@@ -128,6 +135,8 @@ const PlaceItem = (props) => {
 
     fetchRating();
   }, [props.id, auth.token]);
+
+  
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -186,12 +195,13 @@ const PlaceItem = (props) => {
         footerClass="place-item__modal-actions"
         footer={<Button onClick={closeHotelsHandler}>CLOSE</Button>}
       >
-        <Hotels 
-            lat={props.coordinates.lat}
-            lng={props.coordinates.lng}
-          />
+        <Hotels lat={props.coordinates.lat} lng={props.coordinates.lng} />
       </Modal>
-      {/* <Dashboard></Dashboard> */}
+      <Modal
+        show={openSurvey}
+        onCancel={closeSurveyHandler}>
+        <Survey userId={auth.userId} token={auth.token}  placeId={props.id}/>  
+        </Modal>
       <Modal
         show={showConfirmModel}
         onCancel={cancelDeleteHandler}
@@ -270,6 +280,9 @@ const PlaceItem = (props) => {
             <Button inverse onClick={openHotelsHandler}>
               HOTELS
             </Button>
+            {auth.userId && <Button inverse onClick={openSurveyHandler}>
+              SURVEY
+            </Button>}
             {auth.userId === props.creatorId && (
               <Button to={`/places/${props.id}`}>EDIT</Button>
             )}

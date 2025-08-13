@@ -1,4 +1,4 @@
-import React, { Suspense , useState} from "react";
+import React, { Suspense, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -20,7 +20,7 @@ const Users = React.lazy(() => import("./user/pages/Users"));
 const NewPlace = React.lazy(() => import("./places/pages/NewPlace"));
 const UserPlaces = React.lazy(() => import("./places/pages/UserPlaces"));
 const UpdatePlace = React.lazy(() => import("./places/pages/UpdatePlace"));
-const HotPlace = React.lazy(()=> import ("./places/pages/HotPlace"));
+const HotPlace = React.lazy(() => import("./places/pages/HotPlace"));
 const Auth = React.lazy(() => import("./user/pages/Auth"));
 
 const App = () => {
@@ -35,7 +35,7 @@ const App = () => {
         <Route path="/" exact>
           <Users />
         </Route>
-        <Route path='/hot-place'>
+        <Route path="/hot-place">
           <HotPlace />
         </Route>
         <Route path="/:userId/places" exact>
@@ -57,11 +57,12 @@ const App = () => {
           <Users />
         </Route>
         <Route path="/:userId/places" exact>
-        <div className="px-4 py-2 bg-indigo-600 text-white rounded" 
-         onClick={() => setShow((v) => !v)}
-        >
-          <UserPlaces />
-        </div>
+          <div
+            className="px-4 py-2 bg-indigo-600 text-white rounded"
+            onClick={() => setShow((v) => !v)}
+          >
+            <UserPlaces />
+          </div>
         </Route>
         <Route path="/auth">
           <Auth />

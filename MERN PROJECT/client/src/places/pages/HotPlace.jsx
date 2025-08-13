@@ -136,6 +136,7 @@ function HotDestination() {
         <Dashboard
           rating={destination[0].ratings[0].rating}
           totalRaters={destination[0].totalRaters}
+          hotPlaceId={destination[0].placeId}
         />
       </div>
     </>
