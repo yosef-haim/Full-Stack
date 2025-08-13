@@ -1,2 +1,3 @@
-![App Screenshot](.MEARN20%PROJECT/assets/MEARN-PROJECT.png)
+![App Screenshot](./mearn-project/assets/mearn-project.png)
+
 # FullStack
